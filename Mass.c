@@ -73,6 +73,61 @@ int main()
     }
     printf("This was changed matrix");
     printf("\n\n");
+	for (i = 0; i < horiz; i++)
+	{
+		for (j = 0; j < vert; j++)
+		{
+			if (massive1[i][j] < c)
+			{
+				c = massive1[i][j];
+				x = i;
+				y = j;
+			}
+		}
+	}
+
+	for (i = 0; i < horiz; i++)
+	{
+		for (j = 0; j < vert; j++)
+		{
+			massive1[x][j] = -1;
+			massive1[i][y] = -1;
+		}
+	}
+	for (i = 0; i < horiz; i++)
+	{
+		for (j = 0; j < vert - 1; j++)
+		{
+			if (massive1[i][j] == -1 && massive1[i][j + 1] != -1)
+			{
+				a = massive1[i][j];
+				massive1[i][j] = massive1[i][j + 1];
+				massive1[i][j + 1] = a;
+			}
+		}
+	}
+
+	for (i = 0; i < horiz - 1; i++)
+	{
+		for (j = 0; j < vert; j++)
+		{
+			if (massive1[i][j] == -1 && massive1[i + 1][j] != -1)
+			{
+				a = massive1[i][j];
+				massive1[i][j] = massive1[i + 1][j];
+				massive1[i + 1][j] = a;
+			}
+		}
+	}
+
+	for (i = 0; i < horiz - 1; i++)
+	{
+		for (j = 0; j < vert - 1; j++)
+		{
+			printf("%d  ", massive1[i][j]);
+		}
+		printf("\n\n");
+	}
 
 	printf("Do you're matrix.Type in amount of columns: ");
 
