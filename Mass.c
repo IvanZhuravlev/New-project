@@ -136,5 +136,5 @@ int main()
 			printf("%d ", massive3[i][j]);
 		}
 		printf("\n\n");
-		
+	}	
 }
